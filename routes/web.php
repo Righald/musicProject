@@ -13,6 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ActivityController@index')->name('index');
+
+Route::get('estudioMenu', 'ActivityController@estudioMenu')->name('estudioMenu');
+Route::get('juegosMenu', 'ActivityController@juegosMenu')->name('juegosMenu');
+
+Route::get('invaders', 'GameController@invaders')->name('invaders');
+Route::get('memorama', 'GameController@memorama')->name('memorama');
+Route::get('quiz', 'GameController@quizz')->name('quizz');
+route::post('score', 'GameController@score')->name('inject.score');
+
+Route::get('estudio/{id}', 'MenuController@estudio')->name('estudio');
+
+Route::get('scoreTable', 'GameController@scoreTable')->name('score.table');
+
+Route::get('tutorial/{id}', 'MenuController@tutorial')->name('tutorial');
+
+Route::get('dashboard', 'GameController@dashboard')->name('dashboard');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
