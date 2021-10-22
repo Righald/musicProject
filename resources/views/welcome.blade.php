@@ -37,7 +37,7 @@
                     @else
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{url('registro')}}">Registro</a>
+                                <a class="nav-link" href="{{url('register')}}">Registro</a>
                             </li>
                             <li>
                                 <a class="nav-link" href="{{url('login')}}">Login</a>
