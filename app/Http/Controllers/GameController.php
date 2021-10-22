@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Score;
 use App\Models\Activity;
+use App\Models\User;
 
 class GameController extends Controller
 {

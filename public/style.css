@@ -1,0 +1,131 @@
+@font-face {
+    font-family: sketchy;
+    src: url("fonts/SKETCHY.otf");
+}
+html, body {
+    font-family: "sketchy",'Nunito', sans-serif!important;
+    background-image: url('Backgrounds/music-notes-abstract-png.png');
+    background-repeat: no-repeat;
+    color: #636b6f;
+    font-weight: 200;
+    min-height: 100vh;
+    margin: 0!important;
+    margin-top: 20px;
+    word-break:normal;
+    text-align: center;
+    width: 100%;
+    max-height: 100vh;
+}
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: orange!important;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+nav a{
+    font-size: 35px!important;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+.full-height {
+    min-height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+    color: orange;
+    text-transform: uppercase;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    justify-content : space-between;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    max-width: 1000px;
+    justify-content: space-around;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+button.green{
+    border-radius: 45px 45px 45px 45px;
+    -moz-border-radius: 45px 45px 45px 45px;
+    -webkit-border-radius: 45px 45px 45px 45px;
+    transition: 0.2s;
+    border: 5px solid #8CC24A;
+    height: 200px;
+    width: 200px;
+    font-family: "sketchy",'Nunito', sans-serif!important;
+    font-size: 30px;
+    background-color: #548B2E;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 15px;
+}
+
+button.green:hover{
+    border-radius: 50%;
+    transition: 0.5s;
+    border: 5px solid #548B2E;
+    height: 200px;
+    width: 200px;
+    font-family: 'Nunito', sans-serif;
+    border-color: #8CC24A;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 15px;
+    justify-content: space-around;
+}
+@media (max-width: 500px) {
+    body{
+        /* margin-top: 20px; */
+        display: block;
+    }
+    .title{
+        font-size: 60px;
+    }
+    .links > button.green{
+        display: block;
+    }
+    button.green{
+        margin: 20px auto;
+    }
+}

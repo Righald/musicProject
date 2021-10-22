@@ -1,0 +1,19 @@
+/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+/*@media only screen and (max-width: 600px) {
+  div.mquery {
+    font-size: 30px;
+  }
+}*/
+
+
+
+/* If the screen size is 600px or less */
+@media only screen and (max-width: 600px) {
+/*  .mquery {
+    font-size: 35px;
+  }*/
+body{background-color: red}
+  #slider{
+    display: none !important;
+  }
+}
