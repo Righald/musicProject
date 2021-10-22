@@ -148,7 +148,7 @@
 				<h1><a href="#">Registro musicProject</a></h1>
 			</div>
 			<div class="main">
-				<form method="POST" action="{{ route('storeUser') }}" > 
+				<form method="POST" action="{{ route('register') }}" > 
 					
 					{{ csrf_field() }}
 
