@@ -22,6 +22,7 @@ class NotesSeeder extends Seeder
             'pentagrama' => 'path',
             'acorde' => 'path',
             'escala' => 'path',
+            'color' => '#28ff01',
         ]);
 
         DB::table('notes')->insert([
@@ -30,6 +31,7 @@ class NotesSeeder extends Seeder
             'pentagrama' => 'path',
             'acorde' => 'path',
             'escala' => 'path',
+            'color' => '#007dfe',
         ]);
 
         DB::table('notes')->insert([
@@ -38,6 +40,7 @@ class NotesSeeder extends Seeder
             'pentagrama' => 'path',
             'acorde' => 'path',
             'escala' => 'path',
+            'color' => '#4400e9',
         ]);
 
         DB::table('notes')->insert([
@@ -46,6 +49,7 @@ class NotesSeeder extends Seeder
             'pentagrama' => 'path',
             'acorde' => 'path',
             'escala' => 'path',
+            'color' => '#520100',
         ]);
 
         DB::table('notes')->insert([
@@ -54,6 +58,7 @@ class NotesSeeder extends Seeder
             'pentagrama' => 'path',
             'acorde' => 'path',
             'escala' => 'path',
+            'color' => '#b30101',
         ]);
 
         DB::table('notes')->insert([
@@ -62,6 +67,7 @@ class NotesSeeder extends Seeder
             'pentagrama' => 'path',
             'acorde' => 'path',
             'escala' => 'path',
+            'color' => '#ff6300',
         ]);
 
         DB::table('notes')->insert([
@@ -70,6 +76,7 @@ class NotesSeeder extends Seeder
             'pentagrama' => 'path',
             'acorde' => 'path',
             'escala' => 'path',
+            'color' => '#99fe00',
         ]);
 
     }

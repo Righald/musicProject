@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NotesSeeder::class);
         $this->call(QuestionSeeder::class);
         $this->call(ScoreSeeder::class);
+        $this->call(CardSeeder::class);
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }

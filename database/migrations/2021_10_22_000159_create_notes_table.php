@@ -20,7 +20,7 @@ class CreateNotesTable extends Migration
             $table->string('pentagrama');
             $table->string('acorde');
             $table->string('escala');
-            $table->timestamps();
+            $table->string('color');
         });
     }
 
