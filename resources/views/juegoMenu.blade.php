@@ -24,19 +24,19 @@
 
                 <div class="links">
                     
-                    <button class="green" onclick="window.location.href='{{ url('/invaders') }}'">
+                    <button value="SpaceInvaders" class="green" onclick="window.location.href='{{ url('/invaders') }}'">
                         <img src="Icons/napster-brands.svg" style="height: 90px; width: 90px; color: white;">
                         <br>
                         SpaceInvaders.
                     </button>
                     
-                    <button class="green" onclick="window.location.href='{{ url('/memorama') }}'">
+                    <button value="MusicalMemory" class="green" onclick="window.location.href='{{ url('/memorama') }}'">
                         <img src="Icons/icons-solid.svg" style="height: 90px; width: 90px; color: white;">
                         <br>
                         MusicalMemory.
                     </button>
                    
-                   <button class="green" onclick="window.location.href='{{ url('/quiz') }}'">
+                   <button value="MusicalQuizz" class="green" onclick="window.location.href='{{ url('/quiz') }}'">
                         <img src="Icons/music-solid.svg" style="height: 90px; width: 90px; color: white;">
                         <br>
                         MusicalQuizz.
@@ -44,19 +44,19 @@
 
                     <br>
 
-                    <button class="green" onclick="window.location.href='{{ url('/tutorial/1') }}'">
+                    <button value="Tutorial de SpaceInvaders" class="green" onclick="window.location.href='{{ url('/tutorial/1') }}'">
                         <img src="Icons/napster-brands.svg" style="height: 90px; width: 90px; color: white;">
                         <br>
                         Tutorial.
                     </button>
                     
-                    <button class="green" onclick="window.location.href='{{ url('/tutorial/2') }}'">
+                    <button value="Tutorial de MusicalMemory" class="green" onclick="window.location.href='{{ url('/tutorial/2') }}'">
                         <img src="Icons/icons-solid.svg" style="height: 90px; width: 90px; color: white;">
                         <br>
                         Tutorial.
                     </button>
                    
-                   <button class="green" onclick="window.location.href='{{ url('/tutorial/3') }}'">
+                   <button value="Tutorial de MusicalQuizz" class="green" onclick="window.location.href='{{ url('/tutorial/3') }}'">
                         <img src="Icons/music-solid.svg" style="height: 90px; width: 90px; color: white;">
                         <br>
                         Tutorial.
@@ -67,4 +67,42 @@
             </div>
         </div>
     </body>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=Q05sEj9b"></script>
+    <script type="text/javascript">
+
+        
+        let voz = 'Spanish Latin American Female';
+        
+        if (!window.localStorage.getItem('audio') === 'true') {
+            window.localStorage.setItem('audio', 'false');
+        }
+
+        function speach() {
+
+            $("a").hover(function(){                
+                if (window.localStorage.getItem('audio') === 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
+            $("label").hover(function(){                
+                if (window.localStorage.getItem('audio') == 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
+            let botones = document.querySelectorAll("button");
+            botones.forEach(boton => {
+                boton.addEventListener("mouseenter",() => {                    
+                    if (window.localStorage.getItem('audio') == 'true') {
+                        responsiveVoice.speak(boton.value,voz);
+                    }
+                });
+            });
+        }
+
+        speach();
+
+    </script>
+
 </html>

@@ -7,7 +7,7 @@
         <title>musicProject</title>
         
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        {{-- <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
         <link rel="stylesheet" href="../style.css">
         
         <style>
@@ -89,6 +89,31 @@
                 -webkit-text-stroke-width: 1px;
                 -webkit-text-stroke-color: black; 
             }
+            ul{
+                list-style: none;
+                font-size: 2.2rem;
+                color: orange;
+                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-color: black;
+                text-transform: uppercase;
+            }
+            li{
+                margin: 15px 0;
+            }
+
+            .contenedor{
+                padding: 10px 20px;
+                background-color: white;
+                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+                max-width: 1080px;
+                margin: 10px auto;
+                border: 2px solid black;
+                border-radius: 25px;
+            }
+
+            .less{
+                font-size: 3rem;
+            }
 
             @media (max-width: 500px) {
                 body{
@@ -118,18 +143,67 @@
                     <a href="{{ url('/') }}">{{ $info->nombre }}</a>
                 </div>
 
-                <div class="m-b-md">
+                <div class="m-b-md contenedor">
                     
                     @isset($info->nivel)
-                        <p>{{ $info->nivel }}</p>
+                        <div class="title less">{{ $info->nivel }}</div>
                     @endisset
 
                     @isset($info->descripcion)
-                        <p>{!! $info->descripcion !!}</p>
+                        <div>{!! $info->descripcion !!}</div>
                     @endisset
 
                 </div>
             </div>
         </div>
     </body>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=Q05sEj9b"></script>
+    <script type="text/javascript">
+
+        
+        let voz = 'Spanish Latin American Female';
+        
+        if (!window.localStorage.getItem('audio') === 'true') {
+            window.localStorage.setItem('audio', 'false');
+        }
+
+        function speach() {
+
+            $("a").hover(function(){                
+                if (window.localStorage.getItem('audio') === 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
+            $("li").click(function(){                
+                if (window.localStorage.getItem('audio') == 'true') {
+                    let listitem = document.querySelectorAll("li");
+                    let texttoread;
+                    listitem.forEach(item => {
+                        if (window.localStorage.getItem('audio') == 'true') {
+                            responsiveVoice.speak(item.innerHTML,voz);
+                        }
+                    });
+                }
+            });
+            $("div.title.less").click(function(){                
+                if (window.localStorage.getItem('audio') == 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
+            let botones = document.querySelectorAll("button");
+            botones.forEach(boton => {
+                boton.addEventListener("mouseenter",() => {                    
+                    if (window.localStorage.getItem('audio') == 'true') {
+                        responsiveVoice.speak(boton.value,voz);
+                    }
+                });
+            });
+        }
+
+        speach();
+
+    </script>
+
 </html>

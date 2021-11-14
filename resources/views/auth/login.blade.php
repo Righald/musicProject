@@ -3,147 +3,139 @@
 		<title>Login</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style type="text/css">
-			*{
-				margin: 0;
-				font-family: Arial, Helvetica, sans-serif;
-			}
-			html.form,body.form{
+            @font-face {
+                font-family: sketchy;
+                src: url(fonts/SKETCHY.otf);
+            }
+            *{
+                margin: 0;
+                font-family: "sketchy";
+            }
+            html,body{
                 background-image: url('Backgrounds/music-notes-abstract-png.png');
                 color: #636b6f;
                 background-size: 100% auto;
                 background-attachment: fixed;
                 background-position: center;
-                font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 100vh;
                 margin: 0;
-			}
-			body.form > div.main{
-				width: 250px;
-				/*padding: 50px;*/
-				color: white;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%,-50%);
-			}
-			body.form > div.main > div.main:first-of-type{
-				border-top-left-radius: 5px;
-				border-top-right-radius: 5px;
-				text-align: center;
-				background-color: rgba(0,0,0,0.60);
-				padding: 10px; 
-				padding-top: 50px;
-				padding-bottom:25px;
-				border-bottom: 5px solid #868686;
-			}
-			h1 > a{
-				font-size: 25px;
-				transition:  transform .2s; 
-				color: #f6b606;
-				text-decoration: none;
-				font-style: italic;
-			}
+                font-weight: bold;
+                padding-bottom: 55px;
+                height: auto!important;
+                letter-spacing: 0.1em;
+            }
+            body > div.main{
+                width: 250px;
+                /*padding: 50px;*/
+                color: black!important;
+                font-size: 35px;
+                margin: 55px auto;
+            }
+            body > div.main > div.main:first-of-type{
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                text-align: center;
+                background-color: rgba(0,0,0,0.60);
+                padding: 10px; 
+                padding-top: 50px;
+                padding-bottom:25px;
+                border-bottom: 5px solid #868686;
+            }
+            h1 > a{
+                font-size: 25px;
+                transition:  transform .2s; 
+                color: #f6b606;
+                text-decoration: none;
+                font-style: italic;
+            }
 
-			body.form > div.main > div.main:last-of-type{
-				border-top-left-radius: 5px;
-				border-top-right-radius: 5px;
-				text-align: center;
-				background-color: #333333;
-				padding: 20px;
-				padding-top: 25px;
-				padding-bottom: 50px;
-				text-align: left;
-			}
-			form > div.main{
-				margin-bottom: 15px;
-			}
+            body > div.main > div.main:last-of-type{
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                text-align: center;
+                background-color: #8CC24A;
+                padding: 20px;
+                padding-top: 25px;
+                padding-bottom: 50px;
+                text-align: left;
+            }
+            form > div.main{
+                margin-bottom: 15px;
+            }
 
-			form > div.main > input,form > div.main > select {
-				width: 100%;
-				height: 40px;
-				border: 0px;
-			}
-			body.form form > div.main > input[type='text'],
-			body.form form > div.main > input[type='email'], 
-			body.form form > div.main > input[type='file'],
-			body.form form > div.main > input[type='date'],
-			body.form form > div.main > input[type='password'],
-			body.form form > div.main > select {
-				max-width: 100%;
-				padding: 0px 15px;
-				height: 40px;
-				background-color: #333333;
-				border-bottom: 1px solid gray;
-				color: white;
-			}
-			body.form form > div.main:last-of-type > input:last-of-type{
-				border-radius: 5px;
-				font-size: 20px;
-				height: 40px;
-				background-color: #f6b606;
-				border: none;
-				margin: 0;
-			}
-			input:-webkit-autofill,
-			input:-webkit-autofill:hover, 
-			input:-webkit-autofill:focus, 
-			input:-webkit-autofill:active  {
-			    -webkit-box-shadow: 0 0 0 30px #333333 inset !important;
-				-webkit-text-fill-color: white;
-			}
-			div.main > div.main > div.main{
-				font-size:16px; 
-				color:#cc0000;
-			}
-			
-			body.form > div.main{
-			width: 60%;
-			/*padding: 50px;*/
-			color: white;
-			position: absolute;
-			top: 10%;
-			left: 50%;
-			transform: translate(-50%,0%);
-			margin-bottom: 20px;
-			}
-			body.form form > div.main > input[type='text'],
-			body.form form > div.main > input[type='email'],
-			body.form form > div.main > input[type='file'],
-			body.form form > div.main > input[type='date'],
-			body.form form > div.main > input[type='password'],
-			body.form form > div.main > select {
-			    /* max-width: 100%; */
-			    padding: 0px 15px;
-			    width: -webkit-fill-available;
-			    /* padding: 0px 15px; */
-			    height: 40px;
-			    margin: 10px 0px;
-			    background-color: #333333;
-			    border-bottom: 1px solid gray;
-			    color: white;
-			    display: block;
-			}
-			@media(max-width: 600px){
-				
-				body.form body > div.main{
-					width: 90%;
-				}
-				
-				h2{
-					font-size: 1rem;
-				}
-			}
+            form > div.main > input,form > div.main > select {
+                width: 100%;
+                height: 40px;
+                border: 0px;
+            }
+            form > div.main > input[type='text'],
+            form > div.main > input[type='email'], 
+            form > div.main > input[type='file'],
+            form > div.main > input[type='date'],
+            form > div.main > input[type='password'],
+            form > div.main > select {
+                max-width: 100%;
+                padding: 0px 15px;
+                height: 40px;
+                background-color: #8CC24A;
+                border-bottom: 1px solid gray;
+                color: white;
+            }
+            form > div.main:last-of-type > input:last-of-type{
+                border-radius: 5px;
+                font-size: 35px;
+                height: 40px;
+                background-color: #f6b606;
+                border: none;
+                margin: 0;
+            }
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover, 
+            input:-webkit-autofill:focus, 
+            input:-webkit-autofill:active  {
+                -webkit-box-shadow: 0 0 0 30px #8CC24A inset !important;
+                -webkit-text-fill-color: black;
+            }
+            div.main > div.main > div.main{
+                font-size:16px; 
+                color:#cc0000;
+            }
+            
+            body > div.main{
+            width: 60%;
+            /*padding: 50px;*/
+            color: white;
+            margin-bottom: 20px;
+            }
+            form > div.main > input[type='text'],
+            form > div.main > input[type='email'],
+            form > div.main > input[type='file'],
+            form > div.main > input[type='date'],
+            form > div.main > input[type='password'],
+            form > div.main > select {
+                /* max-width: 100%; */
+                padding: 0px 15px;
+                width: -webkit-fill-available;
+                /* padding: 0px 15px; */
+                height: 50px;
+                margin: 10px 0px;
+                background-color: #8CC24A;
+                border-bottom: 1px solid gray;
+                color: black;
+                display: block;
+                font-size: 35px;
+            }
 
-		</style>
+        </style>
+
 
 	</head>
 	
 	
 	<body class="form">
 		<div class="main">
-			<div class="main">
-				<h1><a href="#">music Project</a></h1>
+			<div class="main" style="font-size: 55px; color: #f6b606;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: black;">
+				music Project
 			</div>
 			<div class="main">
 				<form method="POST" action="{{ route('login') }}" > 

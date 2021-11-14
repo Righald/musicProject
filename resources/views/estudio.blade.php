@@ -15,16 +15,45 @@
                 font-family: sketchy;
                 src: url(fonts/SKETCHY.otf);
             }
+            :root{
+                --backgroundcolor:  white;
+            }
             html, body {
                 font-family: "sketchy";
-                background-image: url('Backgrounds/music-notes-abstract-png.png');
                 background-repeat: no-repeat;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight: bold;
                 min-height: 100vh;
+                height: 100%;
+                width: 100%;
                 margin: 0;
+                z-index: 200;
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                position: relative;
+                align-self: center;
             }
+            body::before {
+                content: "";
+                display: flex;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+                background-image: url('{{asset('Backgrounds/music-notes-abstract-png.png')}}');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                opacity: 0.2;
+            }
+            
             a{
                 text-decoration: none;
             }
@@ -32,10 +61,6 @@
                 color: orange!important;
                 -webkit-text-stroke-width: 3px;
                 -webkit-text-stroke-color: black;
-            }
-
-            .full-height {
-                min-height: 100vh;
             }
 
             .flex-center {
@@ -56,13 +81,17 @@
 
             .content {
                 text-align: center;
+                text-align-last: center;
+                max-width:1080px;
+                margin: 0 auto;
             }
 
             .title {
+                text-align: center;
                 font-size: 65px;
                 color: orange;
                 text-transform: uppercase;
-                -webkit-text-stroke-width: 1px;
+                -webkit-text-stroke-width: 2px;
                 -webkit-text-stroke-color: black;
             }
 
@@ -74,6 +103,10 @@
             	color: #000000;
             	text-indent: center;
             	font-size: 20px;
+                padding: 5px 10px; border: black solid 2px;
+                border-radius: 10px;
+                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+                background-color: var(--backgroundcolor);
             }
 
             img{
@@ -137,4 +170,40 @@
             </div>
         </div>
     </body>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=Q05sEj9b"></script>
+    <script type="text/javascript">
+
+        
+        let voz = 'Spanish Latin American Female';
+        
+        if (!window.localStorage.getItem('audio') === 'true') {
+            window.localStorage.setItem('audio', 'false');
+        }
+
+        function speach() {
+
+            $("a").hover(function(){                
+                if (window.localStorage.getItem('audio') === 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
+            $("p").click(function(){                
+                if (window.localStorage.getItem('audio') == 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
+            let botones = document.querySelectorAll("button");
+            botones.forEach(boton => {
+                boton.addEventListener("mouseenter",() => {                    
+                    if (window.localStorage.getItem('audio') == 'true') {
+                        responsiveVoice.speak(boton.value,voz);
+                    }
+                });
+            });
+        }
+
+        speach();
+
+    </script>
 </html>

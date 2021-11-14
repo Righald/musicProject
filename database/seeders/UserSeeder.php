@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use DB; 
-
+ 
 class UserSeeder extends Seeder
 {
     /**

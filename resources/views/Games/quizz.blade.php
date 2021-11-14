@@ -78,6 +78,7 @@
     </body>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="sweetalert2.js"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=Q05sEj9b"></script>
     <script>
         const question = document.getElementById('question');
         
@@ -231,6 +232,48 @@
             setTimeout(() => { refresh(); }, 2000);           
           
         }
+
+        let voz = 'Spanish Latin American Female';
+        
+        if (!window.localStorage.getItem('audio') === 'true') {
+            window.localStorage.setItem('audio', 'false');
+        }
+
+        function speach() {
+
+            $("a").hover(function(){                
+                if (window.localStorage.getItem('audio') === 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
+            $("li").click(function(){                
+                if (window.localStorage.getItem('audio') == 'true') {
+                    let listitem = document.querySelectorAll("li");
+                    let texttoread;
+                    listitem.forEach(item => {
+                        if (window.localStorage.getItem('audio') == 'true') {
+                            responsiveVoice.speak(item.innerHTML,voz);
+                        }
+                    });
+                }
+            });
+            $("div.title.less").click(function(){                
+                if (window.localStorage.getItem('audio') == 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
+            let botones = document.querySelectorAll("button");
+            botones.forEach(boton => {
+                boton.addEventListener("mouseenter",() => {                    
+                    if (window.localStorage.getItem('audio') == 'true') {
+                        responsiveVoice.speak(boton.innerText,voz);
+                    }
+                });
+            });
+        }
+
+        speach();
+
 
     </script>
 
