@@ -15,7 +15,7 @@ class CardController extends Controller
     public function index()
     {    
         $id = Auth::id();
-        $cards = Card::where('id_usuario', $id);
+        $cards = Card::where('id_usuario', $id)->get();
 
         return view('Cards.index', compact('cards'));
     }
@@ -59,6 +59,18 @@ class CardController extends Controller
                 'articulos' => $cards,
             ], 200);
         }
+    }
+
+    public function randomCard()
+    {
+        $id = Auth::id();
+        $cards = Card::where('id_usuario', $id)->get();
+        $r = rand(0, count($cards)-1);
+
+        return response()->json([
+            'message' => 'Busqueda Exitosa',
+            'carta' => $cards[$r],
+        ], 200);
     }
 
     public function destroy($id)

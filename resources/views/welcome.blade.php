@@ -91,7 +91,13 @@
                         <br>
                         Jugar
                     </button>
-               
+                    @if(Auth::check())
+                        <button class="green" onclick="window.location.href='{{ url('/misCartas') }}'" value="Jugar">
+                            <img src="Icons/pen-solid.svg" style="height: 100px; width: 100px; color: white;">
+                            <br>
+                            Apuntes/Cartas
+                        </button>
+                    @endif
                 </div>
             </div>
         </div>

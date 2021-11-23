@@ -41,6 +41,7 @@ Route::middleware(['auth'])->group(function() {
 	Route::put('update','HomeController@storeUpdate')->name('storeUpdateUser');
 	
 	Route::get('misCartas', 'CardController@index')->name('myCards');
+	Route::get('randomCard', 'CardController@randomCard')->name('randomCard');
 	Route::get('getCardsByTheme/{id}', 'CardController@getCardsByTheme')->name('cardsByTheme');
 	Route::post('storeCard', 'CardController@store')->name('myCards_store');
 	Route::put('updateCard', 'CardController@update')->name('myCards_update');
