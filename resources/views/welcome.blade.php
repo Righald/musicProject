@@ -4,13 +4,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>musicProject</title>
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        {{-- <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <title>musicProject</title>
         <link rel="stylesheet" href="style.css">
         <style type="">
+            :root{
+                --fontsize: 5rem;
+            }
             .sound{
                 height: 50px;
                 width: 50px;
@@ -33,9 +36,9 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <div class="my-2 my-lg-0 ml-auto">
-                    <ul class="navbar-nav mr-auto" style="align-content: center;">
+            <div class="mx-auto md:mx-20" id="navbarSupportedContent">
+                <div class="my-2 lg:my-0 ml-auto">
+                    <ul class="flex gap-5 place-content-end" style="align-content: center;">
                         @if(Auth::check())
                             <li class="nav-item active">
                                 <a class="nav-link" href="{{url('update')}}">Cambiar Datos</a>
@@ -44,26 +47,35 @@
                                 <a class="nav-link" href="{{url('logout')}}">Logout</a>
                             </li>
                             <li>
+
                                 <a class="nav-link" href="{{url('scoreTable')}}">Tabla de puntuación</a>
-                            </li>
+                            </div>
                         @else
                     
-                            <li class="nav-item active">
+                            <div class="nav-item active">
                                 <a class="nav-link" href="{{url('register')}}">Registro</a>
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                                 <a class="nav-link" href="{{url('login')}}">Login</a>
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                                 <a class="nav-link" href="{{url('scoreTable')}}">Tabla de puntuación</a>
-                            </li>
+                            </div>
                         @endif
-                        <li class="my-auto">
+                        <div class="my-auto">
                             <button id="sound" class="sound">
-                                <img id="soundimg" src="{{asset('Icons/sound.svg')}}">
+                                <img id="soundimg" class="mx-auto" src="{{asset('Icons/sound.svg')}}">
                             </button>
-                        </li>
+                        </div>
+                        <div class="my-auto">
+                            <button class="sound p-1">
+                                <img id="fontminus" class="mx-auto my-auto text-center" src="{{asset('Backgrounds/minus.svg')}}">
+                            </button>
+                            <button class="sound button p-1">
+                                <img id="fontplus" class="mx-auto my-auto text-center" src="{{asset('Backgrounds/plus.svg')}}">
 
+                            </button>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -80,15 +92,13 @@
                 </div>
 
                 <div class="links">
-                    <button class="green" onclick="window.location.href='{{ url('/estudioMenu') }}'" value="Estudiar">
-                        <img src="Icons/newspaper-solid.svg" style="height: 100px; width: 100px; color: white;">
-                        <br>
+                    <button class="text-black green" onclick="window.location.href='{{ url('/estudioMenu') }}'" value="Estudiar">
+                        <img class="mx-auto" src="Icons/newspaper-solid.svg" style="height: 100px; width: 100px; color: white;">
                         Estudiar
                     </button>
                     
-                    <button class="green" onclick="window.location.href='{{ url('/juegosMenu') }}'" value="Jugar">
-                        <img src="Icons/gamepad-solid.svg" style="height: 100px; width: 100px; color: white;">
-                        <br>
+                    <button class="text-black green" onclick="window.location.href='{{ url('/juegosMenu') }}'" value="Jugar">
+                        <img class="mx-auto" src="Icons/gamepad-solid.svg" style="height: 100px; width: 100px; color: white;">
                         Jugar
                     </button>
                     @if(Auth::check())
@@ -104,8 +114,8 @@
     </body>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=Q05sEj9b"></script>
-    <!-- <script src="jquery-3.5.0.min.js"></script> -->
-    <script src="/js/bootstrap.min.js"></script>
+    <!-- <script src="jquery-3.5.0.min.js"></script> -->{{-- 
+    <script src="/js/bootstrap.min.js"></script> --}}
     <script src="sweetalert2.js"></script>
     <script>
         
@@ -133,12 +143,12 @@
 
         function speach() {
 
-            $("a").hover(function(){                
+            $("a").mouseenter(function(){                
                 if (window.localStorage.getItem('audio') === 'true') {
                     responsiveVoice.speak(this.innerHTML,voz);
                 }
             });
-            $("label").hover(function(){                
+            $("label").mouseenter(function(){                
                 if (window.localStorage.getItem('audio') == 'true') {
                     responsiveVoice.speak(this.innerHTML,voz);
                 }

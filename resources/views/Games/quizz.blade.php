@@ -23,6 +23,15 @@
             form{
                 display: hidden;
             }
+            .links{
+                max-width: 1080px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                align-items: center;
+                margin: 10px auto;
+                justify-content: space-around;
+            }
 
         </style>            
     </head>
