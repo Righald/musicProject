@@ -38,10 +38,10 @@
                     <ul class="navbar-nav mr-auto" style="align-content: center;">
                         @if(Auth::check())
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{url('update/')}}">Cambiar Datos</a>
+                                <a class="nav-link" href="{{url('update')}}">Cambiar Datos</a>
                             </li>
                             <li>
-                                <a class="nav-link" href="{{url('logout/')}}">Logout</a>
+                                <a class="nav-link" href="{{url('logout')}}">Logout</a>
                             </li>
                             <li>
                                 <a class="nav-link" href="{{url('scoreTable')}}">Tabla de puntuación</a>

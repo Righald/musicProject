@@ -20,6 +20,7 @@ class CreateScoresTable extends Migration
             $table->unsignedBigInteger('id_actividad');
             $table->unsignedBigInteger('id_usuario');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('id_actividad')->references('id')->on('activities');
             $table->foreign('id_usuario')->references('id')->on('users');

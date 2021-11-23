@@ -18,24 +18,24 @@ class UserSeeder extends Seeder
         
         DB::table('users')->insert([
             'nickname' => 'Nala',
-            'name' => 'Alan Salvador',
-            'lastname' => 'Piha Hernandez',
+            'nombres' => 'Alan Salvador',
+            'apellidos' => 'Piha Hernandez',
             'email' => 'alan@gmail.com',
             'password' => bcrypt('1234'),
         ]);
         
         DB::table('users')->insert([
             'nickname' => 'El Wapo',
-            'name' => 'Sergio',
-            'lastname' => 'Rojas Noris',
+            'nombres' => 'Sergio',
+            'apellidos' => 'Rojas Noris',
             'email' => 'sergio@gmail.com',
             'password' => bcrypt('1234'),
         ]);
 
         DB::table('users')->insert([
             'nickname' => 'Pelonchas',
-            'name' => 'Mario Alberto',
-            'lastname' => 'Bastida Argueta',
+            'nombres' => 'Mario Alberto',
+            'apellidos' => 'Bastida Argueta',
             'email' => 'mario@gmail.com',
             'password' => bcrypt('1234'),
         ]);

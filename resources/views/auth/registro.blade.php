@@ -145,7 +145,7 @@
 	<body>
 		<div class="main">
 			<div class="main">
-				<h1><a href="#">Registro musicProject</a></h1>
+				<h1><a href="{{ url('/') }}">Registro musicProject</a></h1>
 			</div>
 			<div class="main">
 				<form method="POST" action="{{ route('register') }}" > 

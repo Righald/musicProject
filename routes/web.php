@@ -19,6 +19,9 @@ Route::get('/', 'ActivityController@index')->name('index');
 Route::get('estudioMenu', 'ActivityController@estudioMenu')->name('estudioMenu');
 Route::get('juegosMenu', 'ActivityController@juegosMenu')->name('juegosMenu');
 
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::post('register', 'Auth\RegisterController@register')->name('register');
+
 /*GAME&SCORE ROUTES*/
 Route::get('invaders', 'GameController@invaders')->name('invaders');
 Route::get('memorama', 'GameController@memorama')->name('memorama');
@@ -33,6 +36,10 @@ Route::get('tutorial/{id}', 'ActivityController@tutorial')->name('tutorial');
 /*CARDS ROUTES*/
 Route::middleware(['auth'])->group(function() {
 
+	Route::get('delete','HomeController@deleteUser')->name('deleteUser');
+	Route::get('update','HomeController@update')->name('updateUser');
+	Route::put('update','HomeController@storeUpdate')->name('storeUpdateUser');
+	
 	Route::get('misCartas', 'CardController@index')->name('myCards');
 	Route::get('getCardsByTheme/{id}', 'CardController@getCardsByTheme')->name('cardsByTheme');
 	Route::post('storeCard', 'CardController@store')->name('myCards_store');

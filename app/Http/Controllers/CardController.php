@@ -17,7 +17,7 @@ class CardController extends Controller
         $id = Auth::id();
         $cards = Card::where('id_usuario', $id);
 
-        return view('myCards', compact('cards'));
+        return view('Cards.index', compact('cards'));
     }
 
     public function store(Request $request)

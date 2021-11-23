@@ -8,6 +8,9 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Redirect;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -72,4 +75,20 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    public function register(Request $request)
+    {
+        $user = User::create([
+            'nickname' => $request['nickname'],
+            'nombres' => $request['nombres'],
+            'apellidos' => $request['apellidos'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+
+        Auth::loginUsingId($user->id, true);
+
+        return Redirect::to('/')->with('message', '¡Registro Concluido!');
+    }
+
 }

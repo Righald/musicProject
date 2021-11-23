@@ -135,7 +135,7 @@
 	<body class="form">
 		<div class="main">
 			<div class="main" style="font-size: 55px; color: #f6b606;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: black;">
-				music Project
+				<a style="text-decoration: none; color: #f6b606;" href=" {{ url('/') }} ">music Project</a>
 			</div>
 			<div class="main">
 				<form method="POST" action="{{ route('login') }}" > 

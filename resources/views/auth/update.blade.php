@@ -162,7 +162,7 @@
 				<h1><a href="#">Actualizar Información</a></h1>
 			</div>
 			<div class="main">
-				<form method="POST" action="{{ route('update', $user->id) }}" > 
+				<form method="POST" action="{{ url('update') }}" > 
 					
 				    {{ csrf_field() }}
 				    {{ method_field('PUT') }}
@@ -178,7 +178,7 @@
 					<input type="hidden" name="current" value="{{$user->email}}" >
 					<div class="main">
 						<input name="login" type="submit" value="Actualizar Datos">
-						<div class="main" style="margin-top: 10px;"><a href="{{ url('delete',$user->id) }}">Eliminar cuenta</a></div>
+						<div class="main" style="margin-top: 10px;"><a href="{{ url('delete') }}">Eliminar cuenta</a></div>
 					</div>
 				</form> 
 			</div>
