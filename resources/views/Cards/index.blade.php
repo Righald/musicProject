@@ -45,9 +45,9 @@
   	</div>
 
     <!-- Embla -->
-    <div class="embla text-2xl" id="main-carousel">
+    <div class="embla text-2xl rounded-xl" id="main-carousel">
       <div class="embla__viewport">
-        <div class="embla__container">
+        <div class="embla__container rounded-3xl">
           
           @foreach($cards as $card)
 	          <div class="embla__slide">
@@ -63,11 +63,12 @@
       </div>
     </div>
     <!-- Embla -->
+    <br/>
 
     <!-- Thumbs -->
-    <div class="embla embla--thumb text-2xl" id="thumb-carousel">
+    <div class="embla embla--thumb text-2xl rounded-xl border-green-500" id="thumb-carousel">
       <div class="embla__viewport">
-        <div class="embla__container embla__container--thumb">
+        <div class="embla__container embla__container--thumb rounded-3xl">
           
           @foreach($cards as $card)
 	          <div class="embla__slide embla__slide--thumb">
@@ -85,21 +86,21 @@
 
     <!-- buttons -->
     <button class="green p-4" onclick="window.location.href='{{ url('/misCartas') }}'" value="Jugar">
-        <img class="mx-auto" src="Icons/pen-solid.svg" style="height: 100px; width: 100px; color: white;">
+        <img class="m-auto" src="Backgrounds/plus.svg" style="height: 100px; width: 100px; color: white;">
         <br>
-        <span class="text-black" >Agregar</span>
+        <span class="text-black text-2xl" >Agregar</span>
     </button>
 
     <button class="green p-4" onclick="window.location.href='{{ url('/misCartas') }}'" value="Jugar">
-        <img class="mx-auto" src="Icons/pen-solid.svg" style="height: 100px; width: 100px; color: white;">
+        <img class="m-auto" src="Icons/pen-solid.svg" style="height: 100px; width: 100px; color: white;">
         <br>
-        <span class="text-black" >Editar</span>
+        <span class="text-black text-2xl" >Editar</span>
     </button>
 
     <button class="green p-4" onclick="window.location.href='{{ url('/misCartas') }}'" value="Jugar">
-        <img class="mx-auto" src="Icons/pen-solid.svg" style="height: 100px; width: 100px; color: white;">
+        <img class="m-auto" src="Backgrounds/minus.svg" style="height: 100px; width: 100px; color: white;">
         <br>
-        <span class="text-black" >Eliminar</span>
+        <span class="text-black text-2xl" >Eliminar</span>
     </button>
   </body>
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
