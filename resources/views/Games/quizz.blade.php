@@ -255,6 +255,30 @@
                     responsiveVoice.speak(this.innerHTML,voz);
                 }
             });
+            $("p").click(function(){                
+                if (window.localStorage.getItem('audio') == 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
+            let botones = document.querySelectorAll("button");
+            botones.forEach(boton => {
+                boton.addEventListener("mouseenter",() => {                    
+                    if (window.localStorage.getItem('audio') == 'true') {
+                        responsiveVoice.speak(boton.value,voz);
+                    }
+                });
+            });
+        }
+
+        speach();
+
+        function speach() {
+
+            $("a").hover(function(){                
+                if (window.localStorage.getItem('audio') === 'true') {
+                    responsiveVoice.speak(this.innerHTML,voz);
+                }
+            });
             $("li").click(function(){                
                 if (window.localStorage.getItem('audio') == 'true') {
                     let listitem = document.querySelectorAll("li");

@@ -16,7 +16,7 @@
     <body>
         <div class="flex-center position-ref full-height">
 
-            <div class="content">
+            <div class="py-5">
                 
                 <div class="title m-b-md">
                     <a href="{{ url('/') }}">Selecciona un juego.</a>
@@ -79,6 +79,14 @@
             window.localStorage.setItem('audio', 'false');
         }
 
+        if (window.localStorage.getItem('fontsize') == null) {
+            window.localStorage.setItem('fontsize', '1.5rem');
+        }else{
+            let fontsize = window.localStorage.getItem('fontsize', '1.5rem');
+            let root = window.document.querySelector(":root");
+            root.style.setProperty('--bodysize', fontsize);
+        }
+        
         function speach() {
 
             $("a").hover(function(){                

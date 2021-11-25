@@ -7,137 +7,14 @@
         <title>musicProject</title>
         
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        {{-- <link rel="stylesheet" href="/css/bootstrap.min.css"> --}}
-        <link rel="stylesheet" href="../style.css">
-        
-        <style>
-            @font-face {
-                font-family: sketchy;
-                src: url(fonts/SKETCHY.otf);
-            }
-            html, body {
-                font-family: "sketchy";
-                background-image: 'Backgrounds/music-notes-abstract-png.png';
-                background-repeat: no-repeat;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                min-height: 100vh;
-                margin: 0;
-            }
-            a{
-                text-decoration: none;
-            }
-            a:visited{
-                color: orange!important;
-                -webkit-text-stroke-width: 3px;
-                -webkit-text-stroke-color: black;
-            }
-
-            .full-height {
-                min-height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 65px;
-                color: orange;
-                text-transform: uppercase;
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: black;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-
-            p{
-            	color: #000000;
-            	text-indent: center;
-            	font-size: 35px;
-            }
-
-            img{
-            	max-width:100%;
-                height:auto;
-            }
-            p{
-               font-family: 'Nunito', sans-serif;
-                color: orange;
-                font-weight: bold;
-                font-size: 35px;
-                text-transform: uppercase;
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: black; 
-            }
-            ul{
-                list-style: none;
-                font-size: 2.2rem;
-                color: orange;
-                -webkit-text-stroke-width: 1px;
-                -webkit-text-stroke-color: black;
-                text-transform: uppercase;
-            }
-            li{
-                margin: 15px 0;
-            }
-
-            .contenedor{
-                padding: 10px 20px;
-                background-color: white;
-                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-                max-width: 1080px;
-                margin: 10px auto;
-                border: 2px solid black;
-                border-radius: 25px;
-            }
-
-            .less{
-                font-size: 3rem;
-            }
-
-            @media (max-width: 500px) {
-                body{
-                /* margin-top: 20px; */
-                display: block;
-                }
-                .title{
-                    font-size: 40px;
-                }
-                .links > button{
-                    display: block;
-                }
-                button{
-                    margin: 20px auto;
-                }
-            }
-
-        </style>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset('style.css')}}">
 
     </head>
     <body>
         <div class="flex-center position-ref full-height">
 
-            <div class="content">
+            <div class="px-5">
                 
                 <div class="title m-b-md">
                     <a href="{{ url('/') }}">{{ $info->nombre }}</a>
@@ -146,11 +23,11 @@
                 <div class="m-b-md contenedor">
                     
                     @isset($info->nivel)
-                        <div class="title less">{{ $info->nivel }}</div>
+                        <div class="py-4 px-5 bg-white border-2 border-black mt-10 rounded-3xl">{{ $info->nivel }}</div>
                     @endisset
 
                     @isset($info->descripcion)
-                        <div>{!! $info->descripcion !!}</div>
+                        <div class="py-4 px-5 bg-white border-2 border-black mt-10 rounded-3xl">{!! $info->descripcion !!}</div>
                     @endisset
 
                 </div>
@@ -169,6 +46,14 @@
             window.localStorage.setItem('audio', 'false');
         }
 
+        if (window.localStorage.getItem('fontsize') == null) {
+            window.localStorage.setItem('fontsize', '1.5rem');
+        }else{
+            let fontsize = window.localStorage.getItem('fontsize', '1.5rem');
+            let root = window.document.querySelector(":root");
+            root.style.setProperty('--bodysize', fontsize);
+        }
+        
         function speach() {
 
             $("a").hover(function(){                

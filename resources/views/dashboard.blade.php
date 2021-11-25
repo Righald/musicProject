@@ -140,6 +140,12 @@
 		games();
 		dinero();
 
+		if (window.localStorage.getItem('fontsize') !== null) {
+            let fontsize = window.localStorage.getItem('fontsize', '1.5rem');
+            let root = window.document.querySelector(":root");
+            root.style.setProperty('--bodysize', fontsize);
+        }
+
 		function dinero()
 		{
 			const dataSource = {

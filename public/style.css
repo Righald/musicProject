@@ -2,6 +2,11 @@
     font-family: sketchy;
     src: url("fonts/SKETCHY.otf");
 }
+:root{
+    --bodysize: 1.5rem;
+    --titlesize: calc(var(--bodysize) * 2);
+    --te
+}
 html, body {
     font-family: "sketchy",'Nunito', sans-serif!important;
     background-image: url('Backgrounds/music-notes-abstract-png.png');
@@ -15,6 +20,10 @@ html, body {
     text-align: center;
     width: 100%;
     max-height: 100vh;
+    font-size: var(--bodysize);
+}
+p{
+    font-size: var(--bodysize);
 }
 a{
     text-decoration: none;
@@ -25,7 +34,7 @@ a:visited{
     -webkit-text-stroke-color: black;
 }
 nav a{
-    font-size: 35px!important;
+    font-size: var(--bodysize);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
@@ -55,7 +64,7 @@ nav a{
 }
 
 .title {
-    font-size: 84px;
+    font-size: var(--titlesize);
     color: orange;
     text-transform: uppercase;
     -webkit-text-stroke-width: 3px;
@@ -65,7 +74,7 @@ nav a{
 .links > a {
     color: #636b6f;
     padding: 0 25px;
-    font-size: 13px;
+    font-size: var(--titlesize);
     font-weight: 600;
     letter-spacing: .1rem;
     text-decoration: none;
@@ -91,27 +100,33 @@ button.green{
     -webkit-border-radius: 45px 45px 45px 45px;
     transition: 0.2s;
     border: 5px solid #8CC24A;
-    height: 200px;
-    width: 200px;
+    min-height: 200px;
+    min-width: 200px;
+    max-height: 250px;
+    max-width: 250px;
     font-family: "sketchy",'Nunito', sans-serif!important;
-    font-size: 30px;
+    font-size: var(--bodysize);
     background-color: #548B2E;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 15px;
+    padding: 5px;
 }
 
 button.green:hover{
     border-radius: 50%;
     transition: 0.5s;
     border: 5px solid #548B2E;
-    height: 200px;
-    width: 200px;
+    min-height: 200px;
+    min-width: 200px;
+    max-height: 250px;
+    max-width: 250px;
     font-family: 'Nunito', sans-serif;
     border-color: #8CC24A;
     background-repeat: no-repeat;
     background-size: cover;
     margin: 15px;
+    padding: 5px;
     justify-content: space-around;
 }
 @media (max-width: 500px) {
@@ -120,7 +135,7 @@ button.green:hover{
         display: block;
     }
     .title{
-        font-size: 60px;
+        font-size: var(--titlesize);
     }
     .links > button.green{
         display: block;
@@ -128,4 +143,18 @@ button.green:hover{
     button.green{
         margin: 20px auto;
     }
+}
+.sound{
+    height: 50px;
+    width: 50px;
+    border: 5px solid #8CC24A;
+    background-color: #548B2E;
+    border-radius: 15px;
+}
+.muted{
+    height: 50px;
+    width: 50px;
+    border: 5px solid #f0484d;
+    background-color: #a02128;
+    border-radius: 15px;
 }

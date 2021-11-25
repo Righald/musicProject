@@ -66,6 +66,14 @@
             window.localStorage.setItem('audio', 'false');
         }
 
+        if (window.localStorage.getItem('fontsize') == null) {
+            window.localStorage.setItem('fontsize', '1.5rem');
+        }else{
+            let fontsize = window.localStorage.getItem('fontsize', '1.5rem');
+            let root = window.document.querySelector(":root");
+            root.style.setProperty('--bodysize', fontsize);
+        }
+
         function speach() {
 
             $("a").hover(function(){                
