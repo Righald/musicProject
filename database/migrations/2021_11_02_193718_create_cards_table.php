@@ -17,7 +17,7 @@ class CreateCardsTable extends Migration
             $table->id();
             $table->string('titulo');
             $table->longText('anotacion');
-            $table->unsignedBigInteger('id_information');
+            $table->unsignedBigInteger('id_information')->nullable();
             $table->unsignedBigInteger('id_usuario');
             $table->timestamps();
 

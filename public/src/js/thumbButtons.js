@@ -6,6 +6,7 @@ const onThumbClick = (mainCarousel, thumbCarousel, index) => () => {
 const followMainCarousel = (mainCarousel, thumbCarousel) => () => {
   thumbCarousel.scrollTo(mainCarousel.selectedScrollSnap());
   selectThumbBtn(mainCarousel, thumbCarousel);
+  console.log(window.document.querySelector('.is-selected'))
 };
 
 const selectThumbBtn = (mainCarousel, thumbCarousel) => {

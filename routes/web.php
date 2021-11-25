@@ -43,9 +43,10 @@ Route::middleware(['auth'])->group(function() {
 	Route::get('misCartas', 'CardController@index')->name('myCards');
 	Route::get('randomCard', 'CardController@randomCard')->name('randomCard');
 	Route::get('getCardsByTheme/{id}', 'CardController@getCardsByTheme')->name('cardsByTheme');
+	Route::get('getCard/{id}', 'CardController@getCard')->name('getCardById');
 	Route::post('storeCard', 'CardController@store')->name('myCards_store');
-	Route::put('updateCard', 'CardController@update')->name('myCards_update');
-	Route::delete('deleteCard', 'CardController@destroy')->name('myCards_delete');
+	Route::post('updateCard/{id}', 'CardController@update')->name('myCards_update');
+	Route::delete('deleteCard/{id}', 'CardController@destroy')->name('myCards_delete');
 	
 });
 

@@ -77,6 +77,19 @@ class CardController extends Controller
     {
         Card::destroy($id);
       
-        return view('myCards');
+        return response()->json([
+            'message' => 'Borradingui',
+            'carta' => $id,
+        ], 200);;
+    }
+
+    public function getCard($id)
+    {
+        $card = Card::where('id', $id)->get();
+
+        return response()->json([
+            'message' => 'Busqueda Exitosa',
+            'carta' => $card,
+        ], 200);
     }
 }
