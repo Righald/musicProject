@@ -27,19 +27,29 @@ class CardController extends Controller
         return redirect()->back();
     }
 
-    public function update(Request $request)
+    public function update($id, Request $request)
     {
-        $card = Card::find($request->id);
+        $card = Card::find($id);
 
         if($card)
         {
-            if($card->update($request->all()))
+            if(isset($card))
             {
-                return redirect()->back();
+                $card->titulo = $request->input('titulo');
+                $card->anotacion = $request->input('anotacion');
+                $card->id_information = 1;
+                $card->id_usuario = Auth::id();
+                $card->save();
+
+                return response()->json([
+                    'message' => 'Carta modificada exitosamente.',
+                ], 200);
             }
         }
 
-        return redirect()->back();
+        return response()->json([
+            'message' => 'Error, carta no modificada..',
+        ], 200);
     }
     
     public function getCardsByTheme($id)

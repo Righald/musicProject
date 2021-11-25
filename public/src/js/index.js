@@ -70,13 +70,13 @@ $('#editNote').click(function(e){
 	e.preventDefault();
 	let data = window.document.querySelector('#modalEdit').querySelectorAll('input');
 	let dataAux = window.document.querySelector('#modalEdit').querySelector('textarea').value;
-	console.log(dataAux)
+	console.log('ggg'+data[1].value)
 	$.ajax({
-		url: 'updateCard/'+data[1],
+		url: 'updateCard/'+data[1].value,
 		method: "post",
 		dataType: 'json',
 		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-		data: JSON.stringify({titulo: data[0],anotacion: dataAux})
+		data: {titulo: data[0].value,anotacion: dataAux}
 	}).done(function(response) {
 		console.log(response);
 	});
