@@ -5,6 +5,6 @@
 <script type="text/javascript">
    function oyecy()
    {
-        console.log("puto sandoval");
+        console.log("TEST");
    }
 </script>
