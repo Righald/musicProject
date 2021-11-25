@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         ]);
         
         DB::table('users')->insert([
-            'nickname' => 'El Wapo',
+            'nickname' => 'Lana',
             'nombres' => 'Sergio',
             'apellidos' => 'Rojas Noris',
             'email' => 'sergio@gmail.com',
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'nickname' => 'Pelonchas',
+            'nickname' => 'Mario Bros',
             'nombres' => 'Mario Alberto',
             'apellidos' => 'Bastida Argueta',
             'email' => 'mario@gmail.com',
