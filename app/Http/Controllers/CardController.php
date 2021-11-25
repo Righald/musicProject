@@ -22,9 +22,22 @@ class CardController extends Controller
 
     public function store(Request $request)
     {
-        $card = Card::create($request->all());
+        $card = new Card;
+        $card->titulo = $request->input('titulo');
+        $card->anotacion = $request->input('anotacion');
+        $card->id_information = 1;
+        $card->id_usuario = Auth::id();
 
-        return redirect()->back();
+        if($card->save())
+        {
+            return response()->json([
+                'message' => 'Carta creada exitosamente.',
+            ], 200);
+        }
+
+        return response()->json([
+            'message' => 'Error al crear carta.',
+        ], 200);
     }
 
     public function update($id, Request $request)

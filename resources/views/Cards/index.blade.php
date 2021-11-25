@@ -86,13 +86,32 @@
 		<!-- Thumbs -->
 
 		<!-- buttons -->
-		<button class="green p-4" id="add" value="Jugar">
+		<button class="green p-4" id="add" value="Crear nueva tarjeta">
 				<img class="m-auto" src="Backgrounds/plus.svg" style="height: 100px; width: 100px; color: white;">
 				<br>
 				<span class="text-black text-2xl" >Agregar</span>
 		</button>
 
-		<button class="green p-4" id="edit" value="Jugar">
+		<div id="modalNew" class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-blue-500 bg-opacity-50 transform scale-0 transition-transform duration-300 p-5">
+			<form id="newform" class="bg-white p-4 flex flex-col rounded-3xl text-left max-w-2xl w-full">
+				<button id="closebuttonNew" type="button" class="focus:outline-none w-10 ml-auto">x</button>
+				<div>
+					Titulo:
+				</div>
+				<input class="border-b border-black" type="text" name="titulo">
+				<div>
+					Nota:
+				</div>
+				<textarea class="border-2 rounded-3xl p-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400" style="min-height:250px" type="text" name="anotacion"></textarea>
+				<input type="hidden" name="id">
+				<div class="flex mt-3 gap-1 place-content-end">
+					<button class="border-2 rounded-xl border-black px-2 py-1 border-black text-black">Cancelar</button>
+					<button id="addNote" class="border-2 rounded-xl border-black px-2 py-1 border-black bg-green-400 text-black">Enviar</button>
+				</div>
+			</form>
+		</div>
+
+		<button class="green p-4" id="edit" value="Editar tarjeta actual">
 				<img class="m-auto" src="Icons/pen-solid.svg" style="height: 100px; width: 100px; color: white;">
 				<br>
 				<span class="text-black text-2xl" >Editar</span>
@@ -118,7 +137,7 @@
 			</form>
 		</div>
 
-		<button class="green p-4" id="delete" value="Jugar">
+		<button class="green p-4" id="delete" value="Eliminar tarjeta actual">
 				<img class="m-auto" src="Backgrounds/minus.svg" style="height: 100px; width: 100px; color: white;">
 				<br>
 				<span class="text-black text-2xl" >Eliminar</span>
@@ -129,4 +148,5 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="/src/js/index.js"></script>
 	<script src="https://unpkg.com/embla-carousel-class-names/embla-carousel-class-names.umd.js" ></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=Q05sEj9b"></script>
 </html>

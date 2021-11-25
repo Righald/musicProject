@@ -137,7 +137,7 @@
                         Jugar
                     </button>
                     @if(Auth::check())
-                        <button class="text-black green" onclick="window.location.href='{{ url('/misCartas') }}'" value="Cards">
+                        <button class="text-black green" onclick="window.location.href='{{ url('/misCartas') }}'" value="Tarjetas de estudio">
                             <img class="mx-auto" src="Icons/pen-solid.svg" style="height: 100px; width: 100px; color: white;">
                             Cartas
                         </button>
@@ -204,6 +204,7 @@
                 });
             });
         }
+        speach();
 
         $(".soundbtn").click(function(){
             if (window.localStorage.getItem('audio') === 'true') {
@@ -245,7 +246,6 @@
                 window.localStorage.setItem('fontsize', fontsize+"rem");
             } 
         });
-        speach();
 
         document.addEventListener('alpine:init', () => {
                 Alpine.store('accordion', {

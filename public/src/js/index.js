@@ -1,3 +1,4 @@
+let voz = 'Spanish Latin American Female';
 $.ajaxSetup({
 	headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -57,7 +58,6 @@ $('#edit').click(function(){
 		url: 'getCard/'+id,
 		method: "get"
 	}).done(function(response) {
-		console.log(response);
 		response = response.carta[0];
 		let form = window.document.querySelector('#modalEdit');
 		document.getElementsByName("titulo")[0].value = response.titulo;
@@ -66,13 +66,30 @@ $('#edit').click(function(){
 	});
 
 });
+
 $('#editNote').click(function(e){
 	e.preventDefault();
 	let data = window.document.querySelector('#modalEdit').querySelectorAll('input');
 	let dataAux = window.document.querySelector('#modalEdit').querySelector('textarea').value;
-	console.log('ggg'+data[1].value)
 	$.ajax({
 		url: 'updateCard/'+data[1].value,
+		method: "post",
+		dataType: 'json',
+		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+		data: {titulo: data[0].value,anotacion: dataAux}
+	}).done(function(response) {
+		console.log(response);
+	});
+
+});
+
+$('#addNote').click(function(e){
+	e.preventDefault();
+	let data = window.document.querySelector('#newform').querySelectorAll('input');
+	console.log(data)
+	let dataAux = window.document.querySelector('#newform').querySelector('textarea').value;
+	$.ajax({
+		url: 'storeCard',
 		method: "post",
 		dataType: 'json',
 		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -86,8 +103,42 @@ $('#editNote').click(function(e){
 
 
 const button = document.getElementById('edit')
+const buttonNew = document.getElementById('add')
 const closebutton = document.getElementById('closebutton')
+const closebuttonNew = document.getElementById('closebuttonNew')
 const modal = document.getElementById('modalEdit')
+const modalNew = document.getElementById('modalNew')
 
 button.addEventListener('click',()=>modal.classList.add('scale-100'))
 closebutton.addEventListener('click',()=>modal.classList.remove('scale-100'))
+
+buttonNew.addEventListener('click',()=>modalNew.classList.add('scale-100'))
+closebuttonNew.addEventListener('click',()=>modalNew.classList.remove('scale-100'))
+
+function speach() {
+
+    $("a").mouseenter(function(){                
+        if (window.localStorage.getItem('audio') === 'true') {
+            responsiveVoice.speak(this.innerHTML,voz);
+        }
+    });
+    $("h1").mouseenter(function(){                
+        if (window.localStorage.getItem('audio') == 'true') {
+            responsiveVoice.speak(this.innerHTML,voz);
+        }
+    });
+    $("p").mouseenter(function(){                
+        if (window.localStorage.getItem('audio') == 'true') {
+            responsiveVoice.speak(this.innerHTML,voz);
+        }
+    });
+    let botones = document.querySelectorAll("button.green");
+    botones.forEach(boton => {
+        boton.addEventListener("mouseenter",() => {                    
+            if (window.localStorage.getItem('audio') == 'true') {
+                responsiveVoice.speak(boton.value,voz);
+            }
+        });
+    });
+}
+speach();
