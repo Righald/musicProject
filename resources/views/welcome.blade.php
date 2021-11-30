@@ -9,6 +9,7 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <title>musicProject</title>
         <link rel="stylesheet" href="{{asset('style.css')}}">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     </head>
     <body class="h-auto min-h-0">
         <nav x-data="accordion(6)" class="top-0 z-40 flex flex-wrap items-center justify-between w-full px-4 py-5 tracking-wide md:py-8 md:px-8 lg:px-14 place-content-end flex flex-col">
@@ -147,10 +148,8 @@
         </div>
 
         <x-header/>
-
         <script src="//unpkg.com/alpinejs" defer></script>
     </body>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=Q05sEj9b"></script>
     <!-- <script src="jquery-3.5.0.min.js"></script> -->{{-- 
     <script src="/js/bootstrap.min.js"></script> --}}
