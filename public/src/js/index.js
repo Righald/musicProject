@@ -39,16 +39,34 @@ mainCarousel.on("select", syncThumbCarousel);
 thumbCarousel.on("init", syncThumbCarousel);
 thumbCarousel.on('select', onSelect);
 
-$('#delete').click(function(){
-
-	let id = window.document.querySelector('.is-selected').querySelector('button').value;
-	$.ajax({
-		url: "deleteCard/"+ id,
-		method: "DELETE"
-	}).done(function() {
-		console.log('borrado');
+$('#delete').click(function(e){
+	e.preventDefault();
+	Swal.fire({
+		html:
+			'Seguro que deseas eliminar esta tarjeta?',
+		showCloseButton: true,
+		showCancelButton: true,
+		focusConfirm: false,
+		confirmButtonText: 'Continuar',
+		cancelButtonText: 'Cancelar',     
+		denyButtonText: `Don't save`,
+	}).then((result) => {
+		if (result.isConfirmed) {
+			let id = window.document.querySelector('.is-selected').querySelector('button').value;
+			$.ajax({
+				url: "deleteCard/"+ id,
+				method: "DELETE"
+			}).done(function(response) {
+				Swal.fire({
+					html: response.message,
+					showCloseButton: true,
+					focusConfirm: false,
+				}).then((result) => {
+					location.reload()
+				});
+			});
+        }
 	});
-
 });
 
 $('#edit').click(function(){
@@ -60,42 +78,77 @@ $('#edit').click(function(){
 	}).done(function(response) {
 		response = response.carta[0];
 		let form = window.document.querySelector('#modalEdit');
-		document.getElementsByName("titulo")[0].value = response.titulo;
-		document.getElementsByName("anotacion")[0].value = response.anotacion;
-		document.getElementsByName("id")[0].value = response.id;
+		document.getElementsByName("tituloEdit")[0].value = response.titulo;
+		document.getElementsByName("anotacionEdit")[0].value = response.anotacion;
+		document.getElementsByName("idEdit")[0].value = id;
 	});
 
 });
 
 $('#editNote').click(function(e){
 	e.preventDefault();
-	let data = window.document.querySelector('#modalEdit').querySelectorAll('input');
-	let dataAux = window.document.querySelector('#modalEdit').querySelector('textarea').value;
-	$.ajax({
-		url: 'updateCard/'+data[1].value,
-		method: "post",
-		dataType: 'json',
-		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-		data: {titulo: data[0].value,anotacion: dataAux}
-	}).done(function(response) {
-		console.log(response);
+	Swal.fire({
+		html: 'Seguro que deseas editar esta tarjeta?',
+		showCloseButton: true,
+		showCancelButton: true,
+		focusConfirm: false,
+		confirmButtonText: 'Continuar',
+		cancelButtonText: 'Cancelar',     
+		denyButtonText: `Don't save`,
+	}).then((result) => {
+		if (result.isConfirmed) {
+			let data = window.document.querySelector('#modalEdit').querySelectorAll('input');
+			let dataAux = window.document.querySelector('#modalEdit').querySelector('textarea').value;
+			$.ajax({
+				url: 'updateCard/'+data[1].value,
+				method: "post",
+				dataType: 'json',
+				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				data: {titulo: data[0].value,anotacion: dataAux}
+			}).done(function(response) {
+				Swal.fire({
+					html: response.message,
+					showCloseButton: true,
+					focusConfirm: false,
+				}).then((result) => {
+					location.reload()
+				});
+			});
+        }
 	});
-
 });
 
 $('#addNote').click(function(e){
+
 	e.preventDefault();
-	let data = window.document.querySelector('#newform').querySelectorAll('input');
-	console.log(data)
-	let dataAux = window.document.querySelector('#newform').querySelector('textarea').value;
-	$.ajax({
-		url: 'storeCard',
-		method: "post",
-		dataType: 'json',
-		headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-		data: {titulo: data[0].value,anotacion: dataAux}
-	}).done(function(response) {
-		console.log(response);
+	Swal.fire({
+		html: 'Seguro que deseas agregar esta tarjeta?',
+		showCloseButton: true,
+		showCancelButton: true,
+		focusConfirm: false,
+		confirmButtonText: 'Continuar',
+		cancelButtonText: 'Cancelar',     
+		denyButtonText: `Don't save`,
+	}).then((result) => {
+		if (result.isConfirmed) {
+			let data = window.document.querySelector('#newform').querySelectorAll('input');
+			let dataAux = window.document.querySelector('#newform').querySelector('textarea').value;
+			$.ajax({
+				url: 'storeCard',
+				method: "post",
+				dataType: 'json',
+				headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+				data: {titulo: data[0].value,anotacion: dataAux}
+			}).done(function(response) {
+				Swal.fire({
+					html: response.message,
+					showCloseButton: true,
+					focusConfirm: false,
+				}).then((result) => {
+					location.reload()
+				});
+			});
+        }
 	});
 
 });
@@ -117,28 +170,36 @@ closebuttonNew.addEventListener('click',()=>modalNew.classList.remove('scale-100
 
 function speach() {
 
-    $("a").mouseenter(function(){                
-        if (window.localStorage.getItem('audio') === 'true') {
-            responsiveVoice.speak(this.innerHTML,voz);
-        }
-    });
-    $("h1").mouseenter(function(){                
-        if (window.localStorage.getItem('audio') == 'true') {
-            responsiveVoice.speak(this.innerHTML,voz);
-        }
-    });
-    $("p").mouseenter(function(){                
-        if (window.localStorage.getItem('audio') == 'true') {
-            responsiveVoice.speak(this.innerHTML,voz);
-        }
-    });
-    let botones = document.querySelectorAll("button.green");
-    botones.forEach(boton => {
-        boton.addEventListener("mouseenter",() => {                    
-            if (window.localStorage.getItem('audio') == 'true') {
-                responsiveVoice.speak(boton.value,voz);
-            }
-        });
-    });
+	$("a").mouseenter(function(){                
+		if (window.localStorage.getItem('audio') === 'true') {
+			responsiveVoice.speak(this.innerHTML,voz);
+		}
+	});
+	$("h1").mouseenter(function(){                
+		if (window.localStorage.getItem('audio') == 'true') {
+			responsiveVoice.speak(this.innerHTML,voz);
+		}
+	});
+	$("p").mouseenter(function(){                
+		if (window.localStorage.getItem('audio') == 'true') {
+			responsiveVoice.speak(this.innerHTML,voz);
+		}
+	});
+	let botones = document.querySelectorAll("button.green");
+	botones.forEach(boton => {
+		boton.addEventListener("mouseenter",() => {                    
+			if (window.localStorage.getItem('audio') == 'true') {
+				responsiveVoice.speak(boton.value,voz);
+			}
+		});
+	});
 }
 speach();
+
+if (window.localStorage.getItem('fontsize') == null) {
+    window.localStorage.setItem('fontsize', '1.5rem');
+}else{
+    let fontsize = window.localStorage.getItem('fontsize', '1.5rem');
+    let root = window.document.querySelector(":root");
+    root.style.setProperty('--bodysize', fontsize);
+}

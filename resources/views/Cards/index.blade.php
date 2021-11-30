@@ -52,9 +52,9 @@
 					
 					@foreach($cards as $card)
 						<div class="embla__slide">
-							<div class="embla__slide__inner">
+							<div class="embla__slide__inner overflow-scroll flex flex-col">
 								<h1>{{ $card->titulo }}</h1>
-								<p>
+								<p class="overflow-y-scroll">
 									{{ $card->anotacion }}
 								</p>
 							</div>
@@ -124,12 +124,12 @@
 				<div>
 					Titulo:
 				</div>
-				<input class="border-b border-black" type="text" name="titulo">
+				<input class="border-b border-black" type="text" name="tituloEdit">
 				<div>
 					Nota:
 				</div>
-				<textarea class="border-2 rounded-3xl p-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400" style="min-height:250px" type="text" name="anotacion"></textarea>
-				<input type="hidden" name="id">
+				<textarea class="border-2 rounded-3xl p-2 border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400" style="min-height:250px" type="text" name="anotacionEdit"></textarea>
+				<input type="hidden" name="idEdit">
 				<div class="flex mt-3 gap-1 place-content-end">
 					<button class="border-2 rounded-xl border-black px-2 py-1 border-black text-black">Cancelar</button>
 					<button id="editNote" class="border-2 rounded-xl border-black px-2 py-1 border-black bg-green-400 text-black">Enviar</button>
@@ -149,4 +149,5 @@
 	<script type="text/javascript" src="/src/js/index.js"></script>
 	<script src="https://unpkg.com/embla-carousel-class-names/embla-carousel-class-names.umd.js" ></script>
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=Q05sEj9b"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
